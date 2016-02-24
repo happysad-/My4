@@ -1,0 +1,18 @@
+; Comment
+STO AX 0x05
+STO BX 0x05
+AND AX BX
+JE 0x06
+NOP
+NOP
+ADD AX BX
+HLT
+
+;Subtract 1 16 times from AX
+STO CX 0x00		; Store 16 into counter
+STO AX 0xFF		; Store 128 into accumulator
+SUB AX 0x01		; Subtract 1 from AX
+ADD CX 0x01		; Subtract 1 from CX
+AND CX 0x0F		; Check if CX = 16
+JNZ 0x0E
+HLT
